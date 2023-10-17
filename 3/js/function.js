@@ -1,5 +1,5 @@
-const string = 'Кекс - рыжий кот';
-const length = 20;
+const text = 'Кекс - рыжий кот';
+const numberOfCharacters = 20;
 
 function stringLenght(string,length){
   if(string.length <= length){
@@ -8,4 +8,4 @@ function stringLenght(string,length){
   return false;
 }
 
-stringLenght(string,length);
+stringLenght(text,numberOfCharacters);
