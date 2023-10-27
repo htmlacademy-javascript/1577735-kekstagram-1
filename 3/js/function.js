@@ -13,7 +13,7 @@ checkStringLenght(text,numberOfCharacters);
 
 //Функция для проверки, является ли строка палиндромом.
 function checkPalindrome(string) {
-  string = string.toLowerCase().replaceAll(' ', ''); // добавил строку с https://dev-gang.ru/article/proverka-palindroma-javascript-kxkzwzxds9/
+  string = string.toLowerCase().replaceAll(' ', '');
   let check = '';
   for (let i = string.length - 1; i >= 0; --i) {
     check += string.at(i);
