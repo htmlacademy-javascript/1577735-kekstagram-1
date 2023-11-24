@@ -37,35 +37,51 @@ const getRandomInteger = (min,max)=>{
 };
 
 //Функция по поиску случайного не повторяющегося элемента
-const getRandomNumber = (elements) => elements.splice(Math.random() * elements.length, 1)[0];
+const getRandomUnicNumber = (min,max) => {
+  const unicNumber = [];
+  return () =>{
+    if(unicNumber.length >= max - min + 1){
+      throw new Error('У вас ошибка');
+    }
+    let value = getRandomInteger(min,max);
+    while(unicNumber.includes(value)){
+      value = getRandomInteger(min,max);
+    }
+    unicNumber.push(value);
+    return value;
+  };
+};
 
-//Массив для ID комментария
-const commentIDs = [];
-for(let i = 0;i < 1000;i++){
-  commentIDs.push(i);
-}
 
 //Функция по поиску случайного элемента в переданном массиве
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
 //Создаёт комментарий
-const getComment = ()=>({
-  id:getRandomNumber(commentIDs),
-  avatar:`img/avatar-${getRandomInteger(1,6)}.svg`,
-  message:getRandomArrayElement(message),
-  name:getRandomArrayElement(names)
-});
+const getComment = ()=>{
+  const getId = getRandomUnicNumber(0,1000);
+  return{
+    id:getId(),
+    avatar:`img/avatar-${getRandomInteger(1,6)}.svg`,
+    message:getRandomArrayElement(message),
+    name:getRandomArrayElement(names)
+  };
+
+};
 
 //Создаёт один элемент массива
-const getPost = ()=>({
-  id:getRandomNumber(numbers),
-  url:`photos/${getRandomNumber(numbers)}.jpg`,
-  description:'описание фотографии',
-  likes:getRandomInteger(15,200),
-  comments:getComment
-});
+const unicId = getRandomUnicNumber(1,25);
+const getPost = ()=>{
+  const unicNumber = unicId();
+  return{
+    id:unicNumber,
+    url:`photos/${unicNumber}.jpg`,
+    description:'описание фотографии',
+    likes:getRandomInteger(15,200),
+    comments:getComment()
+  };
+};
 
 // Создаёт 25 постов
-const getManyPosts = ()=>Array.from({length:25},getPost);
-
-getManyPosts();
+const numberOfPosts = 25;
+const createArrayPosts = ()=>Array.from({length:numberOfPosts},getPost);
+createArrayPosts();
