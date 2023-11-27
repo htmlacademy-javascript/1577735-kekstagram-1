@@ -1,9 +1,9 @@
-import { getRandomInteger } from './randome-integer';
-import { getRandomUnicNumber } from './unic-number';
-import { getRandomArrayElement } from './random-element';
+import { getRandomInteger } from './utils';
+import { getRandomUnicNumber } from './utils';
+import { getRandomArrayElement } from './utils';
 
 // Набор имён для комментаторов
-const names = [
+const NAMES = [
   'Иван',
   'Хуан Себастьян',
   'Мария',
@@ -15,7 +15,7 @@ const names = [
 ];
 
 //Набор комментариев
-const message = [
+const MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -24,31 +24,26 @@ const message = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-//Массив чисел для ID
-const numbers = [];
-for(let i = 1;i <= 25;i++){
-  numbers.push(i);
-}
-
 
 //Создаёт комментарий
+const idComment = getRandomUnicNumber(0,1000);
 const getComment = ()=>{
-  const getId = getRandomUnicNumber(0,1000);
+  const getId = idComment();
   return{
     id:getId(),
     avatar:`img/avatar-${getRandomInteger(1,6)}.svg`,
-    message:getRandomArrayElement(message),
-    name:getRandomArrayElement(names)
+    message:getRandomArrayElement(MESSAGE),
+    name:getRandomArrayElement(NAMES)
   };
 
 };
 
 //Создаёт один элемент массива
-const unicId = getRandomUnicNumber(1,25);
+const idPost = getRandomUnicNumber(1,25);
 const getPost = ()=>{
-  const unicNumber = unicId();
+  const unicNumber = idPost();
   return{
-    id:unicNumber,
+    id:idPost(),
     url:`photos/${unicNumber}.jpg`,
     description:'описание фотографии',
     likes:getRandomInteger(15,200),

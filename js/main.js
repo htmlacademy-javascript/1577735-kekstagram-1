@@ -1,3 +1,3 @@
-import { createArrayPosts } from './posts';
+import { createArrayPosts } from './createPostsArray';
 
 createArrayPosts();
