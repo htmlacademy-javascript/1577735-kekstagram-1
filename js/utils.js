@@ -7,7 +7,6 @@ function checkPalindrome(string) {
   }
   return string === check;
 }
-export {checkPalindrome};
 
 //Функция, которая принимает три параметра: исходную строку, минимальную длину и строку с добавочными символами — и возвращает исходную строку, дополненную указанными символами до заданной длины.
 function myPadStart(string,minLength,pad){
@@ -19,8 +18,6 @@ function myPadStart(string,minLength,pad){
   const tempRepeat = pad.repeat(actualPad / pad.length);
   return tempPad + tempRepeat + string;
 }
-
-export {myPadStart};
 
 //Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа.
 function extractNumber(string){
@@ -37,8 +34,6 @@ function extractNumber(string){
   return parseInt(result,10);
 }
 
-export {extractNumber};
-
 // Функция для проверки длины строки.
 
 function checkStringLenght(string,maxLength){
@@ -47,8 +42,6 @@ function checkStringLenght(string,maxLength){
   }
   return false;
 }
-
-export {checkStringLenght};
 
 //Функция по поиску случайного числа
 const getRandomInteger = (min,max)=>{
@@ -60,13 +53,8 @@ const getRandomInteger = (min,max)=>{
   }
 };
 
-export {getRandomInteger};
-
-
 //Функция по поиску случайного элемента в переданном массиве
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
-
-export{getRandomArrayElement};
 
 
 //Функция по поиску случайного не повторяющегося элемента
@@ -85,5 +73,5 @@ const getRandomUnicNumber = (min,max) => {
   };
 };
 
-export {getRandomUnicNumber};
+export {getRandomArrayElement,getRandomInteger,checkStringLenght,extractNumber,myPadStart,checkPalindrome,getRandomUnicNumber};
 

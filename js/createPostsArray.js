@@ -2,6 +2,8 @@ import { getRandomInteger } from './utils';
 import { getRandomUnicNumber } from './utils';
 import { getRandomArrayElement } from './utils';
 
+const NUMBEROFPOSTS = 25;
+
 // Набор имён для комментаторов
 const NAMES = [
   'Иван',
@@ -52,7 +54,6 @@ const getPost = ()=>{
 };
 
 // Создаёт 25 постов
-const numberOfPosts = 25;
-const createArrayPosts = ()=>Array.from({length:numberOfPosts},getPost);
+const createArrayPosts = ()=>Array.from({length:NUMBEROFPOSTS},getPost);
 
 export{createArrayPosts};
