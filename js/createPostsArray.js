@@ -1,6 +1,6 @@
-import { getRandomInteger } from './utils';
-import { getRandomUnicNumber } from './utils';
-import { getRandomArrayElement } from './utils';
+import {getRandomInteger} from './utils.js';
+import {getRandomUnicNumber} from './utils.js';
+import {getRandomArrayElement} from './utils.js';
 
 const NUMBEROFPOSTS = 25;
 
@@ -32,7 +32,7 @@ const idComment = getRandomUnicNumber(0,1000);
 const getComment = ()=>{
   const getId = idComment();
   return{
-    id:getId(),
+    id:getId,
     avatar:`img/avatar-${getRandomInteger(1,6)}.svg`,
     message:getRandomArrayElement(MESSAGE),
     name:getRandomArrayElement(NAMES)
@@ -45,7 +45,7 @@ const idPost = getRandomUnicNumber(1,25);
 const getPost = ()=>{
   const unicNumber = idPost();
   return{
-    id:idPost(),
+    id:idPost,
     url:`photos/${unicNumber}.jpg`,
     description:'описание фотографии',
     likes:getRandomInteger(15,200),
