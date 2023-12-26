@@ -1,3 +1,5 @@
-import { createArrayPosts } from './createPostsArray';
+import {createArrayPosts} from './createPostsArray.js';
+import {getSomePictures} from './mini-picture.js';
 
-createArrayPosts();
+getSomePictures(createArrayPosts());
+
